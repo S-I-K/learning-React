@@ -1,21 +1,11 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import useFetch from '../hooks/useFetch';
 
 export default function DayList(){
-    const [days, setDays] = useState([]);
-
-    /* useEffect(함수, 배열) 해당 배열의 상태값이 변경될때 함수실행 */
-    // 배열에 빈 값을 넣으면 최초에 한번만 실행됨
-    useEffect(()=>{
-        fetch('http://localhost:3002/days') //프로미스 반환
-        .then(res => {
-            return res.json()
-        })
-        .then(data => {
-            setDays(data);
-        })
-    }, []);
+    /* useEffect(할일, 상태값배열) */
+    /* Day, DayList의 useEffect 로직이 비슷함 => Custom Hooks */
+    /* useFetch(url)을 넘겨줘서 ajax api 실행 후 값 배열로 얻어옴 */
+    const days = useFetch('http://localhost:3002/days');
 
     return(
     <ul className='list_day'>

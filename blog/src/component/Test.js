@@ -20,6 +20,11 @@ export default function Test(){
         setDays(days==='Mon' ? 'tue':'Mon');
     }
 
+    /* fetch */
+    fetch('http://localhost:3002/days')
+    .then((res)=>{return res.json()})
+    .then((data)=>{console.log(data)});
+
 
     return(
         <>

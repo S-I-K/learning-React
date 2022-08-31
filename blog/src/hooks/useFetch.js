@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 
 export default function useFetch(url){
     const [data, setData] = useState([]);
-    console.log(typeof data);
     /* useEffect(할일, 상태값배열) */
     /* Day, DayList의 useEffect 로직이 비슷함 => Custom Hooks */
     useEffect(()=>{

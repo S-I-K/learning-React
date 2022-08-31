@@ -1,16 +1,55 @@
 import { useState } from 'react';
 
 export default function Word(props){
+    const [word, setWord] = useState(props.word);
     const [isShow, setIsShow] = useState(false);
     const [isDone, setIsDone] = useState(props.word.isDone);
 
+    /** 단어 뜻 보이기, 숨기기 */
     function toggleShow(){
         setIsShow(!isShow);
     }
+    /** CheckBox Event, fetchAPI - PUT (json-server data update) */
     function toggleDone(){
-        setIsDone(!isDone);
+        // setIsDone(!isDone); first code
+        /* fetch PUT (1)URL (2)OBJECT */
+        fetch(`http://localhost:3002/words/${props.word.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type' : 'application/json'
+            },
+
+            body: JSON.stringify({
+                ...props.word,
+                isDo0ne : !isDone
+            }),
+        })
+        .then(res => {
+            if(res.ok){
+                setIsDone(!isDone);
+            }
+        });
     }
-    
+    /** fetchAPI - DELETE */
+    function del(){
+        if(window.confirm('삭제할꺼임?')){
+            fetch(`http://localhost:3002/words/${props.word.id}`,{
+                method: 'DELETE',
+            })
+            .then((res)=>{
+                if(res.ok){
+                    setWord(props.word.id = 0);
+                }
+            })
+        }else{
+            console.log('삭제 안할거면 누르지마셈');
+        }
+    }
+
+    if(props.word.id === 0){
+        return null;
+    }
+
     return(
         <tr className={isDone ? 'off' : ''}>
             <td>
@@ -24,8 +63,13 @@ export default function Word(props){
             </td>
             <td>
                 <button onClick={ toggleShow }> 뜻 { isShow ? '숨기기':'보기' } </button>
-                <button className='btn_del'>삭제</button>
+                <button onClick={ del } className='btn_del'>삭제</button>
             </td>
         </tr>
     );
 }
+
+// Create - POST
+// Read - GET
+// Updata - PUT
+// Delete - DELETE

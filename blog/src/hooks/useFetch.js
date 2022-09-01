@@ -13,6 +13,7 @@ export default function useFetch(url){
         .then(data => {
             setData(data);
         })
+        .catch((err) => {console.log('url 다시 확인하셈: ',err)})
     }, [url]);
 
     return data;

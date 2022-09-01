@@ -10,9 +10,9 @@ export default function Header(){
                 <Link to='/create_word' className='link'>
                     word add
                 </Link>
-                <a href='/' className='link'>
+                <Link to='/create_day' className='link'>
                     day add
-                </a>
+                </Link>
             </div>
         </div>
     );

@@ -11,6 +11,18 @@
     {
       "id": 3,
       "day": 3
+    },
+    {
+      "day": 4,
+      "id": 4
+    },
+    {
+      "day": 5,
+      "id": 5
+    },
+    {
+      "day": 6,
+      "id": 6
     }
   ],
   "words": [
@@ -34,6 +46,41 @@
       "eng": "school",
       "kor": "학교",
       "isDone": false
+    },
+    {
+      "day": "2",
+      "eng": "life line",
+      "kor": "생선",
+      "isDone": false,
+      "id": 6
+    },
+    {
+      "day": "1",
+      "eng": "Cha Jong-hyeon",
+      "kor": "여드름",
+      "isDone": false,
+      "id": 7
+    },
+    {
+      "day": "2",
+      "eng": "line water",
+      "kor": "선물",
+      "isDone": false,
+      "id": 8
+    },
+    {
+      "day": "6",
+      "eng": "end",
+      "kor": "끝",
+      "isDone": false,
+      "id": 9
+    },
+    {
+      "day": "6",
+      "eng": "start",
+      "kor": "시작",
+      "isDone": false,
+      "id": 10
     }
   ]
 }

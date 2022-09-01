@@ -11,6 +11,10 @@
     {
       "id": 3,
       "day": 3
+    },
+    {
+      "day": 4,
+      "id": 4
     }
   ],
   "words": [
@@ -34,6 +38,33 @@
       "eng": "school",
       "kor": "학교",
       "isDone": false
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "day": "2",
+      "eng": "life line",
+      "kor": "생선",
+      "isDone": false,
+      "id": 8
+    },
+    {
+      "day": "1",
+      "eng": "banana",
+      "kor": "뻐네너",
+      "isDone": false,
+      "id": 9
+    },
+    {
+      "day": "4",
+      "eng": "line water",
+      "kor": "선물",
+      "isDone": false,
+      "id": 10
     }
   ]
 }

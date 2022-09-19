@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* input number 오른쪽 화살표 지우기 */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: #222;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h3 {
+    color: #444;
+    transition: color .8s ease-in-out;
+}
+h3:hover {
+    color: #fff;
+}
+
+#root > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.input-area {
+    margin-bottom: 4px;
+}
+
+input {
+    border: none;
+    border-radius: 4px;
+    padding: 4px 4px;
+    outline: none;
+    border: 2px solid transparent;
+    background: #a9a9a9;
+    color: #fff;
+    margin-left: 8px;
+}
+
+input:focus,
+input:hover {
+    border: 2px solid #ffffff;
+}
+
+h4 {
+    color: #ffff;
+}
+
+.marker{
+    color: #fffc56;
+}
+
+.btn {
+    border: none;
+    border-radius: 4px;
+    width: 60px;
+    padding: 2px 0;
+    margin: 0 4px;
+    background: #444;
+    color: #fff;
+    transition: background-color .4s ease-in-out;
+    cursor: pointer;
+}
+.btn:hover {
+    background: #555;
+}

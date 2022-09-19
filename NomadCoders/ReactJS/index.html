@@ -1,0 +1,79 @@
+<!-- React JS -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- fontawsome -->
+    <script src="https://kit.fontawesome.com/77bc876b29.js" crossorigin="anonymous"></script>
+    <!-- react js cdn -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- babel cdn -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>React JS</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+
+
+<script type="text/babel">
+    /* React.createElement(tagname, {property} or null, contents) */
+    /* root Element */
+    const root = document.querySelector('#root');
+
+    function App(){
+        /* 분에서 시간, 시간에서 분으로 변환하는 Component */
+        /* 1. input value controll */
+        /* 2. event listener function */
+        /* + disabled option */
+        /* 3. flip function */
+        console.log('대충이라도 하자ㅋㅋ');
+        const [amount, setAmount] = React.useState();
+        const [flip, setFlip] = React.useState(false);
+
+        /* data updata */
+        function onChange(e){
+            setAmount(e.target.value);
+        }
+        /* data reset */
+        function reset(){
+            setAmount(0);
+        }
+        /* data flip */
+        function onFlip(){
+            reset();
+            setFlip((current)=> !current);
+        }
+
+
+        return(
+            <div>
+                <h2>Super Converter</h2>
+                <h4> You want to convert <span className='marker'> { amount } </span> </h4>
+                {/*********** Minute ***********/}
+                <div className='input-area'>
+                    <label htmlFor="minutes">Minutes</label>
+                    <input type="number" placeholder="Minutes" id="minutes" value={ flip ? amount*60 : amount } onChange={onChange} disabled={flip}></input>
+                </div>
+                {/*********** Hours ***********/}
+                <div className='input-area'>
+                    <label htmlFor="hours">Hours</label>
+                    <input type="number" placeholder="Hours" id="hours" value={ flip ?  amount : Math.floor(amount/60) } onChange={onChange} disabled={!flip}></input>
+                </div>
+                {/*********** Button ***********/}
+                <div className="btn-area">
+                    <button className="btn" onClick={reset}><i className="fa-solid fa-rotate"></i></button>
+                    <button className="btn" onClick={onFlip}><i className="fa-solid fa-shuffle"></i></button>
+                </div>
+                </div>
+        );
+    };
+    /* ReactDOM.render(new Tag, root Tag) */
+    ReactDOM.render(<App/>, root);
+</script>
+</html>

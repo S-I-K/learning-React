@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: #222;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.btn {
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    width: 150px;
+    height: 40px;
+    background: #108d3c;
+    color: #fff;
+    cursor: pointer;
+}
+
+p {
+    transition: opacity 1s ease-in-out;
+    opacity: .1;
+}

@@ -12,6 +12,8 @@
     <!-- react js cdn -->
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- react PropTypes -->
+    <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
     <!-- babel cdn -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <title>React JS</title>
@@ -27,22 +29,28 @@
     const root = document.querySelector('#root');
 
     function Btn(props){
-        console.log(props);
         return <button style={{
             backgroundColor: "tomato",
             color: "white",
             padding: "10px 20px",
             border: 0,
             borderRadius: 10,
-        }}> { props.name } </button>
+        }} onClick={props.클릭}> { props.name } </button>
+    }
+    Btn.propTypes = {
+        name: PropTypes.string,
     }
 
     function App(){
+        const [value, setValue] = React.useState("hyo");
+
+        function 클릭(){
+            setValue(value==="hyo" ? "sik" : "hyo");
+        }
 
         return(
             <div className="container">
-                <Btn name="hyo" />
-                <Btn name="sik" />
+                <Btn name={value} 클릭={클릭} />
             </div>
         );
     };

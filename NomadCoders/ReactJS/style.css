@@ -83,3 +83,14 @@ h4 {
 .btn:hover {
     background: #555;
 }
+
+.disabled {
+    background: #272727;
+    border: 2px solid #747474;
+}
+
+select {
+    border: 0;
+    border-radius: 4px;
+    padding: 2px;
+}

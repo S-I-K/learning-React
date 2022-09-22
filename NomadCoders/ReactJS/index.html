@@ -26,112 +26,23 @@
     /* root Element */
     const root = document.querySelector('#root');
 
-    /* Time Converter Component */
-    function MinutesToHours(){
-        /* 분에서 시간, 시간에서 분으로 변환하는 Component */
-        /* 1. input value controll */
-        /* 2. event listener function */
-        /* + disabled option */
-        /* 3. flip function */
-        const [amount, setAmount] = React.useState();
-        /* inverted => true일땐 hours에 입력, false일땐 minute에 입력 */
-        const [inverted, setInverted] = React.useState(false);
-
-        /* data updata */
-        function onChange(e){
-            setAmount(e.target.value);
-        }
-        /* data reset */
-        function reset(){
-            setAmount(0);
-        }
-        /* data flip */
-        function onFlip(){
-            reset();
-            setInverted((current)=> !current);
-            console.log('change !');
-        }
-
-
-        return(
-            <div>
-                <h4>Minutes To Hours Converter</h4>
-                <h5>Current Value <span className="marker"> {amount} </span></h5>
-                {/*********** Minute ***********/}
-                <div className='input-area'>
-                    <label htmlFor="minutes">Minutes</label>
-                    <input type="number" placeholder="Minutes" id="minutes" className={inverted ? "disabled" : ""} value={ inverted ? amount*60 : amount } onChange={onChange} disabled={inverted}></input>
-                </div>
-                {/*********** Hours ***********/}
-                <div className='input-area'>
-                    <label htmlFor="hours">Hours</label>
-                    <input type="number" placeholder="Hours" id="hours" className={!inverted ? "disabled" : ""} value={ inverted ?  amount : Math.floor(amount/60) } onChange={onChange} disabled={!inverted}></input>
-                </div>
-                {/*********** Button ***********/}
-                <div className="btn-area">
-                    <button className="btn" onClick={reset}><i className="fa-solid fa-rotate"></i></button>
-                    <button className="btn" onClick={onFlip}><i className="fa-solid fa-shuffle"></i></button>
-                </div>
-                </div>
-        );
-    };
-    /* Code Challenge ! */
-    function KmToMile(){
-        const [amount, setAmount] = React.useState();
-        const [inverted, setInverted] = React.useState(false);
-
-        function onChange(e){
-            setAmount(e.target.value);
-        }
-
-        function reset(){
-            setAmount("0");
-        }
-
-        function onFlip(){
-            reset();
-            setInverted( (current)=> !current );
-            console.log(inverted);
-        }
-
-        return(
-            <div>
-                <h4>Kilometer To Mile Converter</h4>
-                <h5>Current Value <span className="marker"> {amount} </span></h5>
-                <div className="input-area">
-                    <label htmlFor="km">Km</label>
-                    <input type="number" className={inverted ? "disabled":""} id="km" placeholder="Kilometer" value={!inverted ? amount : amount * 1.6093} onChange={onChange} disabled={inverted}></input>
-                </div>
-                <div className="input-area">
-                    <label htmlFor="mile">Mile</label>
-                    <input type="number" className={!inverted ? "disabled":""} id="mile" placeholder="Mile" value={inverted ? amount : amount / 1.6093} onChange={onChange} disabled={!inverted}></input>
-                </div>
-                <div className="btn-area">
-                    <button className="btn" onClick={reset}><i className="fa-solid fa-rotate"></i></button>
-                    <button className="btn" onClick={onFlip}><i className="fa-solid fa-shuffle"></i></button>
-                </div>
-            </div>
-        );
+    function Btn(props){
+        console.log(props);
+        return <button style={{
+            backgroundColor: "tomato",
+            color: "white",
+            padding: "10px 20px",
+            border: 0,
+            borderRadius: 10,
+        }}> { props.name } </button>
     }
-    /* App */
-    function App(){
-        const [index, setIndex] = React.useState("1");
 
-        function onSelect(e){
-            setIndex(e.target.value);
-        }
+    function App(){
 
         return(
-            <div>
-                <h2>Converter</h2>
-                <select value={index} onChange={onSelect}>
-                    <option value="">Choose one</option>
-                    <option value="0">Minutes & Hours</option>
-                    <option value="1">Km & Miles</option>
-                </select>
-                {index === "" ? "What do you want to convert?" : null}
-                {index === "0" ? <MinutesToHours/> : null}
-                {index === "1" ? <KmToMile/> : null}
+            <div className="container">
+                <Btn name="hyo" />
+                <Btn name="sik" />
             </div>
         );
     };

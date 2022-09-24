@@ -21,7 +21,7 @@ export default function Word(props){
 
             body: JSON.stringify({
                 ...props.word,
-                isDo0ne : !isDone
+                isDone : !isDone
             }),
         })
         .then(res => {
@@ -33,7 +33,7 @@ export default function Word(props){
     /** fetchAPI - DELETE */
     function del(){
         if(window.confirm('삭제할꺼임?')){
-            fetch(`http://localhost:3002/words/${props.word.id}`,{
+            fetch(`http//:localhost:3002/words/${props.word.id}`,{
                 method: 'DELETE',
             })
             .then((res)=>{

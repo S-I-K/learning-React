@@ -1,0 +1,43 @@
+<!--바닐라JS -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css -->
+    <link rel="stylesheet" href="./style.css">
+    <title>Vanilla JS</title>
+</head>
+<body>
+    <!-- 1. HTML 구조 생성 -->
+    <h1>Vanilla JS</h1>
+    <button class="btn" value="text">Click me</button>
+    <p>Total click's : 0</p>
+</body>
+<script>
+    /* 2. 데이터 선언 */
+    let counter = 0;
+    const btn = document.querySelector('.btn');
+    const p = document.querySelector('p');
+    /* 3. 이벤트 부여 */
+    btn.addEventListener('click', ()=>{
+        counter += 1;
+        console.log(counter);
+        /* 4. HTML 업데이트 */
+        p.innerText = `Total click's : ${counter}`;
+        if(counter === 5) {
+            p.style.opacity = ".2";
+        }
+        if(counter === 10){
+            p.style.opacity = ".4";
+        }
+        if(counter === 15){
+            p.style.opacity = ".6";
+        }
+        if(counter === 20){
+            p.style.opacity = "1";
+        }
+    });
+</script>
+</html>

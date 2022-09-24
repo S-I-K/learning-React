@@ -1,0 +1,61 @@
+<!-- React JS -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- fontawsome -->
+    <script src="https://kit.fontawesome.com/77bc876b29.js" crossorigin="anonymous"></script>
+    <!-- react js cdn -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- react PropTypes -->
+    <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+    <!-- babel cdn -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>React JS</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+
+
+<script type="text/babel">
+    /* React.createElement(tagname, {property} or null, contents) */
+    /* root Element */
+    const root = document.querySelector('#root');
+
+    function Btn(props){
+        return <button style={{
+            backgroundColor: "tomato",
+            color: "white",
+            padding: "10px 20px",
+            border: 0,
+            borderRadius: 10,
+        }} onClick={props.클릭}> { props.name } </button>
+    }
+    Btn.propTypes = {
+        name: PropTypes.string,
+    }
+
+    function App(){
+        const [value, setValue] = React.useState("hyo");
+
+        function 클릭(){
+            setValue(value==="hyo" ? "sik" : "hyo");
+        }
+
+        return(
+            <div className="container">
+                <Btn name={value} 클릭={클릭} />
+            </div>
+        );
+    };
+    /* ReactDOM.render(new Tag, root Tag) */
+    ReactDOM.render(<App/>, root);
+    console.log('대충이라도 하자ㅋㅋ');
+</script>
+</html>

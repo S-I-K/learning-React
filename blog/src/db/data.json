@@ -15,6 +15,7 @@
     {
       "day": 4,
       "id": 4
+<<<<<<< HEAD
     },
     {
       "day": 5,
@@ -23,6 +24,8 @@
     {
       "day": 6,
       "id": 6
+=======
+>>>>>>> d39d72ebbba4e0547a0a20c75baa06fed4b90209
     }
   ],
   "words": [
@@ -48,10 +51,20 @@
       "isDone": false
     },
     {
+<<<<<<< HEAD
+=======
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+>>>>>>> d39d72ebbba4e0547a0a20c75baa06fed4b90209
       "day": "2",
       "eng": "life line",
       "kor": "생선",
       "isDone": false,
+<<<<<<< HEAD
       "id": 6
     },
     {
@@ -72,13 +85,27 @@
       "day": "6",
       "eng": "end",
       "kor": "끝",
+=======
+      "id": 8
+    },
+    {
+      "day": "1",
+      "eng": "banana",
+      "kor": "뻐네너",
+>>>>>>> d39d72ebbba4e0547a0a20c75baa06fed4b90209
       "isDone": false,
       "id": 9
     },
     {
+<<<<<<< HEAD
       "day": "6",
       "eng": "start",
       "kor": "시작",
+=======
+      "day": "4",
+      "eng": "line water",
+      "kor": "선물",
+>>>>>>> d39d72ebbba4e0547a0a20c75baa06fed4b90209
       "isDone": false,
       "id": 10
     }

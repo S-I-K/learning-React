@@ -1,33 +1,42 @@
 import { useState, useEffect } from 'react';
 import styles from './App.module.css';
 
-
-function Hello(){
-  useEffect(()=>{ //Cleanup Function 이라고 불리는데 앵간하면 안쓴다고 함 React에서는
-    console.log('created 🥳'); //useEffect가 실행되는 시점에서 실행
-    return ()=>{ console.log("die...☠️") } //useEffect가 종료되는 시점에서 return
-  }, []);
-  return <h1> Hello </h1>
-}
-
-function Bye(){
-  return <h1> Bye.. </h1>
-}
-
-
 function App() {
-  // console.log("대충이라도 하자");
-  const [show, setShow] = useState(false);
+  const [todo, setTodo] = useState("");
+  const [todos, setTodos] = useState([]);
 
-  function onClick(){
-    setShow((prev)=>!prev);
+
+  /* input */
+  function onChange(e){
+    setTodo(e.target.value);
   }
+  /* form submit */
+  function onSubmit(e){
+    e.preventDefault();
+    if(todo === ""){
+      return;
+    }
+    setTodos( (current)=> [...current, todo] );
+    setTodo("");
+  }
+  /* to-do delete */
+  function deleteBtn(currentIndex){
+    console.log(currentIndex);
+    setTodos(todos.filter((item, index)=> currentIndex !== index));
+  }
+
 
   return (
     <div className={styles.main}>
       <div className={styles.container}>
-        <button onClick={onClick}> { show ? "hide" : "show" } </button>
-        { show ? <Hello/> : <Bye /> }
+        <h1 className={styles.title}>오늘 할 일({ todos.length })</h1>
+        <form onSubmit={onSubmit}>
+          <input className={styles.todo} type="text" value={todo} onChange={onChange} placeholder='Write your to do ... '/>
+          <button className={styles.btn} > add </button>
+        </form>
+        <ul>
+          { todos.map((item, index)=> <li className={styles.TodoList} key={index}> { item } <button className={styles.delete} onClick={()=> deleteBtn(index) }>x</button></li>) }
+        </ul>
       </div>
     </div>
   );

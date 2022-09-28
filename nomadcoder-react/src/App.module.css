@@ -14,6 +14,7 @@
     /* align-items: center; */
     color: #fff;
     overflow-x: hidden;
+    position: relative;
 }
 
 .container {
@@ -79,4 +80,19 @@ ul {
     color: #fff;
     position: absolute;
     right: 4%;
+}
+
+/* coin list */
+.loading {
+    width: 300px;
+    height: 160px;
+    background: #444;
+    border: 2px solid #d7ff44;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
 }

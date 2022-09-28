@@ -2,41 +2,32 @@ import { useState, useEffect } from 'react';
 import styles from './App.module.css';
 
 function App() {
-  const [todo, setTodo] = useState("");
-  const [todos, setTodos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [coins, setCoins] = useState([]);
 
-
-  /* input */
-  function onChange(e){
-    setTodo(e.target.value);
-  }
-  /* form submit */
-  function onSubmit(e){
-    e.preventDefault();
-    if(todo === ""){
-      return;
-    }
-    setTodos( (current)=> [...current, todo] );
-    setTodo("");
-  }
-  /* to-do delete */
-  function deleteBtn(currentIndex){
-    console.log(currentIndex);
-    setTodos(todos.filter((item, index)=> currentIndex !== index));
-  }
-
+  useEffect(()=>{
+    fetch('https://api.coinpaprika.com/v1/tickers')
+    .then( (res) => res.json() )
+    .then( (json) => {
+      console.log(json);
+      setCoins(json);
+      setLoading(false);
+    })
+  }, []);
 
   return (
     <div className={styles.main}>
       <div className={styles.container}>
-        <h1 className={styles.title}>오늘 할 일({ todos.length })</h1>
-        <form onSubmit={onSubmit}>
-          <input className={styles.todo} type="text" value={todo} onChange={onChange} placeholder='Write your to do ... '/>
-          <button className={styles.btn} > add </button>
-        </form>
-        <ul>
-          { todos.map((item, index)=> <li className={styles.TodoList} key={index}> { item } <button className={styles.delete} onClick={()=> deleteBtn(index) }>x</button></li>) }
-        </ul>
+        <h1>The Coins ! { loading ? null : `(Total Coins : ${coins.length})` }</h1>
+        {loading ? <div className={styles.loading}>Loading ...</div> :
+          <ul>
+            {coins.map((coin)=> (
+              <li key={coin.id}>
+                {coin.name} ({coin.symbol}) : ${coin.quotes.USD.price} USD
+              </li>
+            ))}
+          </ul>
+        }
       </div>
     </div>
   );

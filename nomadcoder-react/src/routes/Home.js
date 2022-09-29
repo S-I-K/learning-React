@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import Movie from '../component/Movie';
+import styles from './Home.module.css';
 
 
 export default function Home(){
